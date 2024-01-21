@@ -1,4 +1,5 @@
-#!/bin/bash
-mv -f /tmp/my_first_directory/betty /tmp/my_first_directory/ 2>/dev/null
+ #!/bin/bash
+ mv -f /tmp/my_first_directory/betty /tmp/my_first_directory/ 2>/dev/null
+
 
 
