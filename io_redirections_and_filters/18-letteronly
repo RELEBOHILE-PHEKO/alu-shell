@@ -1,2 +1,2 @@
 #!/bin/bash
-grpe -i '^[a-z]' /etc/ssh/sshd_config
+grpe -i *^[a-z]* /etc/ssh/sshd_config
