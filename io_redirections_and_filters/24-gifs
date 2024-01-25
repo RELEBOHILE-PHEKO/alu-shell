@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f -name "*.gif" -exec sh -c 'echo "${1%.*}"' _ {} \; | LC_ALL=C sort -t. -k1,1f
+find . -type f -name "*.gif" -exec bash -c 'printf "%s\n" "${0%.*}"' {} \; | LC_ALL=C sort -t. -k1,1f
