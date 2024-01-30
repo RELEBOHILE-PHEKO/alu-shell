@@ -1,12 +1,8 @@
 #!/usr/bin/env bash
 # Using a for loop to display the content of the current directory
-for item in *; do
-	 if [ -d "$item" ]; then
-		  for file in "$item"/*; do
-			   if [[ ! $file == .* && $file == *-* ]]; then
-				   name_part=$(echo "$file" | cut -d'-' -f2-)
-				   echo "$name_part"
-				fi
-			      done
-		       fi
-	 done
+for file in *; do
+    if [[ ! $file == .* && $file == *-* ]]; then
+        name_part=$(echo "$file" | cut -d'-' -f2-)
+        echo "$name_part"
+    fi
+done
