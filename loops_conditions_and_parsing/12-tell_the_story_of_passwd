@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 # displays the content of the file /etc/passwd, using the while loop + IFS
-while IFS=":" read -r username _ uid gid _ home shell; do
+while IFS=":" read -r username _ _ _ home shell; do
     user_info=$(getent passwd "$username")
     password=$(echo "$user_info" | awk -F ':' '{print $2}')
     user_id_info=$(echo "$user_info" | awk -F ':' '{print $5}')
-    command_shell=$(echo "$user_info" | awk -F ':' '{print $NF}')
     group_id=$(echo "$user_info" | awk -F ':' '{print $(NF-1)}')
-    echo "The user $username is part of the group $group_id gang, lives in $home and rides $command_shell."
+    echo "The user $username is part of the group $group_id gang, lives in $home and rides $shell."
     echo "USER ID's place is protected by the passcode $password, more info about the user here: $user_id_info"
     echo
 done < /etc/passwd
