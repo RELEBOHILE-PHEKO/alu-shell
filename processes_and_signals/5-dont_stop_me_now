@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Find the process ID of the "4-to_infinity_and_beyond" process.
+# Find the process ID of the "4-to_infinity_and_beyond" process 
 pid=$(pgrep "4-to_infinity_and_beyond")
 
 # Check if the process ID is not empty
