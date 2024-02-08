@@ -6,7 +6,7 @@ pid=$(pgrep "4-to_infinity_and_beyond")
 if [ -n "$pid" ]; then
     # Send the SIGTERM signal to the process to stop it gracefully
     pkill -TERM -P "$pid"
-    echo "4-to_infinity_and_beyond process has been stopped."
+    echo -n  "4-to_infinity_and_beyond process has been stopped."
 else
-    echo "4-to_infinity_and_beyond process is not running."
+    echo -n  "4-to_infinity_and_beyond process is not running."
 fi
