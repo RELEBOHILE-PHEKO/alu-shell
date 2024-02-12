@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # use kill to terminate the 4-infinity process
 # Run the process in the background
-./4-to_infinity_and_beyond &
+./4-to_infinity_and_beyond >/dev/null 2>&1 &
 
 # Get the PID of the last background process
 PID=$!
