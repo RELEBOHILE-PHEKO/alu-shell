@@ -9,8 +9,13 @@ PID=$!
 # Wait for the process to finish
 wait $PID
 
-# Output confirmation
-echo "Process terminated"
+if ps -p $PID > /dev/null; then
+    # Output confirmation
+    echo "Process terminated"
+else
+    # Output that the process is not running
+    echo "4-to_infinity_and_beyond process is not running."
+fi
 
 # Kill the process using its PID
 kill $PID
