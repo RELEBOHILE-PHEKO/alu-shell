@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
-# Find the PID of the 4-to_infinity_and_beyond process
-pid=$(pgrep 4-to_infinity_and_beyond)
+# use kill to terminate the 4-infinity process
+# Run the process in the background
+./4-to_infinity_and_beyond &
 
-if [ -z "$pid" ]; then
-    echo "Process not found."
-else
-    # Send SIGTERM signal to terminate the process
-    kill "$pid"
-    echo "Process $pid stopped."
-fi
+# Get the PID of the last background process
+PID=$!
+
+# Wait for the process to finish
+wait $PID
+
+# Output confirmation
+echo "Process terminated"
+
+# Kill the process using its PID
+kill $PID
