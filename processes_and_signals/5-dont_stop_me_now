@@ -1,21 +1,11 @@
 #!/usr/bin/env bash
-# use kill to terminate the 4-infinity process
-# Run the process in the background
-./4-to_infinity_and_beyond >/dev/null 2>&1 &
+# Bash script that stops 4-to_infinity_and_beyond process.
 
-# Get the PID of the last background process
-PID=$!
+#Get the pid of the program
+id=$(pgrep "bash ./4-to_infinity_and_beyond" -f)
 
-# Wait for the process to finish
-wait $PID
-
-if ps -p $PID > /dev/null; then
-    # Output confirmation
-    echo "Process terminated"
-else
-    # Output that the process is not running
-    echo "4-to_infinity_and_beyond process is not running."
+#Terminate the infinate process
+if [ -n "$id" ]
+then
+   kill -15 "$id"
 fi
-
-# Kill the process using its PID
-kill $PID
