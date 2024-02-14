@@ -1,13 +1,5 @@
 #!/usr/bin/env bash
-# stop the 4-to_infinity_and_beyond proccess without using kill or killall
-# Run the process in the background
-./4-to_infinity_and_beyond &
+#Bash script that stops 4-to_infinity_and_beyond process
 
-# Get the PID of the last background process
-PID=$!
-
-# Wait for the process to finish
-wait $PID
-
-# Output confirmation
-echo "Process terminated"
+#Terminate the infinate process
+pkill -15 "bash ./4-to_infinity_and_beyond" -f
