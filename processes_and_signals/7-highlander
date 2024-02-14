@@ -1,4 +1,4 @@
-#!/sur/bin/env bash
+#!/usr/bin/env bash
 # displays To infinity and beyond indefinitely
 trap 'echo "I am invincible!!!"' SIGTERM
 
