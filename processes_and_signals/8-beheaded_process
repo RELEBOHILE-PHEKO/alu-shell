@@ -1,11 +1,3 @@
 #!/usr/bin/env bash
-# kills the process 7-highlander
-id=$(pgrep "bash ./7-highlander" -f)
-
-# Terminate the process if the PID is not empty
-if [ -n "$id" ]; then
-  kill -15 "$id"
-  echo "The 7-highlander process has been terminated."
-else
-  echo "The 7-highlander process is not running."
-fi
+# Find and kill the 7-highlander process
+pkill -TERM -f "7-highlander"
