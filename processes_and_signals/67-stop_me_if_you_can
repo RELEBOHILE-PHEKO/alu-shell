@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-# Get the PID of the program
-id=$(pgrep "bash ./7-highlander.sh" -f)
+# Trap SIGTERM signal
+trap 'echo "I am invincible!!!"; pkill -TERM -f "7-highlander"' SIGTERM
 
-# Terminate 7-highlander.sh
-if [ -n "$id" ]; then
-   kill -15 "$id"
-fi
+# Infinite loop
+while true; do
+    echo "To infinity and beyond indefinitely"
+    sleep 2
+done
