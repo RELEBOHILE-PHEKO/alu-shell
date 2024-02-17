@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 #signal
-clean_up='rm /var/run/myscript.pid; exit $?'
+clean_up() {
+    rm -f /var/run/myscript.pid
+    exit $?
+}
 
+# Register clean_up function to trap signals
+trap 'clean_up' SIGTERM SIGQUIT
+
+# Store the PID of this script
 echo $$ > "/var/run/myscript.pid"
+
