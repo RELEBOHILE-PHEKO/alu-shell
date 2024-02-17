@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+# signal
 # Function to handle cleanup
 clean_up() {
     echo "Cleaning up and terminating..."
