@@ -13,9 +13,16 @@ handle_sigint() {
     echo "Y U no love me?!"
 }
 
-# Register clean_up function to trap signals
-trap 'clean_up' SIGTERM SIGQUIT
+# Function to handle SIGTERM signal
+handle_sigterm() {
+    echo "I hate the kill command!"
+    clean_up
+}
+
+# Register signal handling functions
+trap 'clean_up' SIGQUIT
 trap 'handle_sigint' SIGINT
+trap 'handle_sigterm' SIGTERM
 
 # Store the PID of this script
 echo $$ > "/var/run/myscript.pid"
