@@ -1,35 +1,19 @@
 #!/usr/bin/env bash
-# signal
+# Bash script 
+#!/usr/bin/env bash
+#process and pid fil
+echo $$ >> /var/run/myscript.pid
 
-# Function to handle cleanup
-clean_up() {
-    echo "Cleaning up and terminating..."
-    rm -f /var/run/myscript.pid
-    exit $?
+myfunc(){
+echo "I hate the kill command"
+rm /var/run/myscript.pid
+exit
 }
 
-# Function to handle SIGINT signal
-handle_sigint() {
-    echo "Y U no love me?!"
-}
+trap "myfunc" SIGTERM
+trap "echo 'Y U no love me?!'" SIGINT
 
-# Function to handle SIGTERM signal
-handle_sigterm() {
-    echo "I hate the kill command!"
-    clean_up
-}
-
-# Register signal handling functions
-trap 'clean_up' SIGQUIT
-trap 'handle_sigint' SIGINT
-trap 'handle_sigterm' SIGTERM
-
-# Store the PID of this script
-echo $$ > "/var/run/myscript.pid"
-
-# Display message indefinitely
 while true; do
     echo "To infinity and beyond"
-    sleep 1
 done
 
